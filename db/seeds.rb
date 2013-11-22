@@ -23,6 +23,13 @@ users = User.create([
   }
 ])
 
+t.text :step
+t.date :complete_by
+t.boolean :is_done
+t.text :comment
+t.boolean :repeat
+t.integer :how_many_time
+
 challenges = Challenge.create([
   {
     goal: "Climb Aconcagua by June next year",
@@ -32,7 +39,12 @@ challenges = Challenge.create([
     user: users[0],
     milestones: Milestone.create([
       {
-        step: "Do vertical training twice a week starting from Jan 2014."
+        step: "Do vertical training twice a week starting from Jan to Mar 2014",
+        complete_by: "31-Mar-2014",
+        is_done: false,
+        comment: "",
+        repeat: false,
+        how_many_time: 1
       }
     ])
   },
