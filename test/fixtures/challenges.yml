@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  goal: MyText
+  accomplish_by: 2013-11-19 12:54:54
+  is_summit: false
+  is_completed: false
+  completed_on: 2013-11-19
+  time: MyString
+  user_id: 
+
+two:
+  goal: MyText
+  accomplish_by: 2013-11-19 12:54:54
+  is_summit: false
+  is_completed: false
+  completed_on: 2013-11-19
+  time: MyString
+  user_id: 

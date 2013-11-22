@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  step: MyText
+  complete_by: 2013-11-19 12:55:20
+  is_done: false
+  comment: MyText
+  repeat: false
+  how_many_time: 1
+  challenge_id: 
+
+two:
+  step: MyText
+  complete_by: 2013-11-19 12:55:20
+  is_done: false
+  comment: MyText
+  repeat: false
+  how_many_time: 1
+  challenge_id: 
