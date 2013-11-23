@@ -2,7 +2,7 @@ class ChallengesController < ApplicationController
   
   def index
     @user = User.find(params[:user_id])
-    @challenges = params[:id] ? @user.challenges.find(params[:id].split(","))  : @user.challenges
+    @challenges = params[:id] ? @user.challenges.where('id in (?)', params[:id].split(","))  : @user.challenges
   end
   
   def create

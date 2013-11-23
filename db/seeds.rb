@@ -23,13 +23,6 @@ users = User.create([
   }
 ])
 
-t.text :step
-t.date :complete_by
-t.boolean :is_done
-t.text :comment
-t.boolean :repeat
-t.integer :how_many_time
-
 challenges = Challenge.create([
   {
     goal: "Climb Aconcagua by June next year",

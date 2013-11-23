@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20131119045520) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "challenges", force: true do |t|
     t.text     "goal"
     t.date     "accomplish_by"
@@ -24,7 +27,7 @@ ActiveRecord::Schema.define(version: 20131119045520) do
     t.datetime "updated_at"
   end
 
-  add_index "challenges", ["user_id"], name: "index_challenges_on_user_id"
+  add_index "challenges", ["user_id"], name: "index_challenges_on_user_id", using: :btree
 
   create_table "milestones", force: true do |t|
     t.text     "step"
@@ -38,7 +41,7 @@ ActiveRecord::Schema.define(version: 20131119045520) do
     t.datetime "updated_at"
   end
 
-  add_index "milestones", ["challenge_id"], name: "index_milestones_on_challenge_id"
+  add_index "milestones", ["challenge_id"], name: "index_milestones_on_challenge_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
