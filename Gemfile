@@ -14,6 +14,8 @@ gem 'puma'
 gem 'rabl'
 gem 'oj'
 gem 'gon'
+gem 'acts_as_list'
+gem 'devise'
 
 group :development, :test do
  gem 'rspec-rails'

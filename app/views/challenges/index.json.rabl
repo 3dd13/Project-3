@@ -1,6 +1,6 @@
 collection @challenges
 
-attributes :id, :goal, :accomplish_by, :is_completed, :completed_on
+attributes :id, :goal, :accomplish_by, :is_completed, :completed_on, :challenge_as_summit_id
 
 node :href do |challenge|
   user_challenge_url(@user, challenge)

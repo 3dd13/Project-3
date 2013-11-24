@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 20131119045520) do
 
   create_table "users", force: true do |t|
     t.string   "name"
-    t.integer  "age"
     t.string   "gender"
     t.datetime "created_at"
     t.datetime "updated_at"
