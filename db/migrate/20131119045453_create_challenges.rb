@@ -6,7 +6,7 @@ class CreateChallenges < ActiveRecord::Migration
       t.boolean :is_completed
       t.date :completed_on
       t.references :user, index: true
-      t.integer :user_as_summit_id, index: true
+      t.integer :challenge_as_summit_id, index: true
 
       t.timestamps
     end

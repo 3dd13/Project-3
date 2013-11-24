@@ -6,7 +6,7 @@ class CreateMilestones < ActiveRecord::Migration
       t.boolean :is_done
       t.text :comment
       t.boolean :repeat
-      t.integer :how_many_time
+      t.integer :repeat_freq
       t.references :challenge, index: true
 
       t.timestamps

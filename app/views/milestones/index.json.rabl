@@ -1,14 +1,16 @@
 collection @milestones
 
-attributes :id, :goal, :accomplish_by, :is_completed, :completed_on
+attributes :id, :step, :complete_by, :comment, :repeat, :repeat_freq
 
 node :href do |milestone|
-  user_challenge_milestone_url(@user, milestone)
+  user_challenge_milestone_url(@user, @challenge, milestone)
 end
 
 node :links do |milestone|
-  {
+  { 
+    challenge: user_challenge_url(@user, @challenge),
+    challenges: user_challenges_url(@user),
     user: user_url(@user),
-    challenge: user_challenge_url(@challenge)
+    users: users_url
   }
 end

@@ -8,6 +8,9 @@ end
 
 node :links do |challenge|
   {
-    user: user_url(@user)
+    milestones: user_challenge_milestones_url(@user, challenge),
+    challenges: user_challenges_url(@user),
+    user: user_url(@user),
+    users: users_url
   }
 end

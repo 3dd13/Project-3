@@ -1,4 +1,4 @@
-@arBlank =
+@project3 =
   usersTemplate: Handlebars.compile "
     <ul>
       {{#each users}}

@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20131119045520) do
     t.boolean  "is_completed"
     t.date     "completed_on"
     t.integer  "user_id"
-    t.integer  "user_as_summit_id"
+    t.integer  "challenge_as_summit_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20131119045520) do
     t.boolean  "is_done"
     t.text     "comment"
     t.boolean  "repeat"
-    t.integer  "how_many_time"
+    t.integer  "repeat_freq"
     t.integer  "challenge_id"
     t.datetime "created_at"
     t.datetime "updated_at"

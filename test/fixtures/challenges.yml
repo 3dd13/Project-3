@@ -3,7 +3,7 @@
 one:
   goal: MyText
   accomplish_by: 2013-11-19 12:54:54
-  is_summit: false
+  is_project3: false
   is_completed: false
   completed_on: 2013-11-19
   time: MyString
@@ -12,7 +12,7 @@ one:
 two:
   goal: MyText
   accomplish_by: 2013-11-19 12:54:54
-  is_summit: false
+  is_project3: false
   is_completed: false
   completed_on: 2013-11-19
   time: MyString

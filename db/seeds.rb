@@ -1,4 +1,6 @@
 User.destroy_all
+Challenge.destroy_all
+Milestone.destroy_all
 
 users = User.create([
   {
@@ -37,14 +39,14 @@ challenges = Challenge.create([
         is_done: false,
         comment: "",
         repeat: false,
-        how_many_time: 1
+        repeat_freq: 1
       }
     ])
   },
   {
     goal: "Climb Everest in 5 years",
     user: users[0],
-    user_as_summit: users[0],
+    challenge_as_summit: users[0],
     milestones: Milestone.create([
       {
         step: "Climb Mount Hkakabo Razi in Burma"
@@ -57,7 +59,7 @@ challenges = Challenge.create([
   {
     goal: "Compete in a triathlon",
     user: users[1],
-    user_as_summit: users[1],
+    challenge_as_summit: users[1],
     milestones: Milestone.create([
       {
         step: "Run 10kms 3 times a week from 1st week of Jan 2014."
@@ -67,7 +69,7 @@ challenges = Challenge.create([
   {
     goal: "Do a border to border cross country challenge across Finnish Lapland",
     user: users[2],
-    user_as_summit: users[2],
+    challenge_as_summit: users[2],
     milestones: Milestone.create([
       {
         step: "Do skiing practice daily for the next 3 months"
@@ -77,7 +79,7 @@ challenges = Challenge.create([
   {
     goal: "Master Korean and Japanese in by the end of this year",
     user: users[3],
-    user_as_summit: users[3],
+    challenge_as_summit: users[3],
     milestones: Milestone.create([
       {
         step: "Practice daily conversation in Korean and Japanese with Kim and Ikuya"

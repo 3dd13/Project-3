@@ -1,18 +1,22 @@
 object false
 
 child @users, object_root: false do
-
   attributes :id, :name, :gender, :age
+
 
   node :href do |user|
     user_url(user)
   end
 
-  node :links do |user|
+  node :links do |challenge|
     {
-      challenges: user_challenges_url(user),
-      users: users_url
+      user: user_url(user, @challenge)
     }
   end
 
+  node :links do
+    {
+      all_users: users_url
+    }
+  end
 end
