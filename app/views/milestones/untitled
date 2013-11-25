@@ -1,0 +1,24 @@
+
+
+object @user
+
+attributes :id, :name
+child :challenges, object_root: false do
+  attributes :id, :goal, :accomplish_by, :is_completed, :completed_on, :challenge_as_summit_id
+  child :milestones, object_root: false do
+    attributes :id, :step, :complete_by, :comment, :repeat, :repeat_freq
+
+    node :href do |milestone|
+      user_challenge_milestone_url(@user, @challenge, milestone)
+    end
+
+    node :links do |milestone|
+      { 
+        challenge: user_challenge_url(@user, @challenge),
+        challenges: user_challenges_url(@user),
+        user: user_url(@user),
+        users: users_url
+      }
+    end
+  end
+end

@@ -2,7 +2,7 @@ object false
 
 child @users, object_root: false do
 
-  attributes :id, :name
+  attributes :id, :name, :gender
 
   node :href do |user|
     user_url(user)
@@ -13,6 +13,10 @@ child @users, object_root: false do
       challenges: user_challenges_url(user),
       users: users_url
     }
+  end
+
+  node :challenges do |user|
+    user.challenges
   end
 
 end

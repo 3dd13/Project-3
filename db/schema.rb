@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131119045520) do
+ActiveRecord::Schema.define(version: 20131124171252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20131119045520) do
     t.integer  "challenge_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "position"
   end
 
   add_index "milestones", ["challenge_id"], name: "index_milestones_on_challenge_id", using: :btree

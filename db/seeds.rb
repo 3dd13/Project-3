@@ -174,6 +174,79 @@ challenges = Challenge.create([
     ])
   },
   {
+    goal: "Ski cross-country across Austrian Tyrol.",
+    accomplish_by: '31-Oct-2013',
+    is_completed: true,
+    completed_on: '15-Oct-2013',
+    user: users[3],
+    milestones: Milestone.create([
+      {
+        step: "Plan for all the 7 different ski routes.",
+        complete_by: "31-Mar-2013",
+        is_done: true,
+        comment: "Research on the routes completed and decided to skip the Waldloipe route",
+        repeat: false,
+        repeat_freq: 1
+      },
+      {
+        step: "Complete the Ischgl route.",
+        complete_by: "31-Oct-2013",
+        is_done: true,
+        comment: "",
+        repeat: false,
+        repeat_freq: 1
+      },
+      {
+        step: "Complete the Mathon Loipe route.",
+        complete_by: "31-Oct-2013",
+        is_done: true,
+        comment: "",
+        repeat: false,
+        repeat_freq: 1
+      },
+      {
+        step: "Complete the Mathon Loipe route.",
+        complete_by: "31-Oct-2013",
+        is_done: true,
+        comment: "",
+        repeat: false,
+        repeat_freq: 1
+      },
+      {
+        step: "Complete the Tschaffein Loipe route.",
+        complete_by: "31-Oct-2013",
+        is_done: true,
+        comment: "",
+        repeat: false,
+        repeat_freq: 1
+      },
+      {
+        step: "Complete the Galtür Wirl Loipe route.",
+        complete_by: "31-Oct-2013",
+        is_done: true,
+        comment: "",
+        repeat: false,
+        repeat_freq: 1
+      },
+      {
+        step: "Complete the Skiwanderweg Silvretta – Bielerhöhe route.",
+        complete_by: "31-Oct-2013",
+        is_done: true,
+        comment: "",
+        repeat: false,
+        repeat_freq: 1
+      },
+      {
+        step: "Complete the Skiwanderweg Zeinis route.",
+        complete_by: "31-Oct-2013",
+        is_done: true,
+        comment: "",
+        repeat: false,
+        repeat_freq: 1
+      }
+    ])
+  },
+  {
     goal: "29,029 Vertical Feet, Two Poles, One Dream. Sometimes it takes traveling to both Poles and the Roof of the World to see just a little deeper into yourself.",
     accomplish_by: '31-Dec-2015',
     is_completed: false,
