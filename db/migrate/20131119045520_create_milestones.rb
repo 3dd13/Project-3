@@ -4,7 +4,8 @@ class CreateMilestones < ActiveRecord::Migration
       t.text :step
       t.date :complete_by
       t.boolean :is_done
-      t.text :comment
+      t.text :milestone_update
+      t.text :milestone_comment
       t.boolean :repeat
       t.integer :repeat_freq
       t.references :challenge, index: true

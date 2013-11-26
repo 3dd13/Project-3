@@ -1,5 +1,7 @@
 class MilestonesController < ApplicationController
   
+  respond_to :json
+
   def index
     @user = User.includes(:challenges => [ :milestones ]).find(params[:user_id])
     @challenge = @user.challenges.find(params[:challenge_id])

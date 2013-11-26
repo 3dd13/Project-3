@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20131124171252) do
     t.date     "accomplish_by"
     t.boolean  "is_completed"
     t.date     "completed_on"
+    t.text     "challenge_update"
+    t.text     "challenge_comment"
     t.integer  "user_id"
     t.integer  "challenge_as_summit_id"
     t.datetime "created_at"
@@ -33,7 +35,8 @@ ActiveRecord::Schema.define(version: 20131124171252) do
     t.text     "step"
     t.date     "complete_by"
     t.boolean  "is_done"
-    t.text     "comment"
+    t.text     "milestone_update"
+    t.text     "milestone_comment"
     t.boolean  "repeat"
     t.integer  "repeat_freq"
     t.integer  "challenge_id"
@@ -47,6 +50,8 @@ ActiveRecord::Schema.define(version: 20131124171252) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "gender"
+    t.text     "user_update"
+    t.text     "user_comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
