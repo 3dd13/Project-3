@@ -58,7 +58,7 @@ class ChallengesController < ApplicationController
 
   def challenge_params
     params.require(:user).permit(
-      :goal, :accomplish_by, :is_completed, :completed_on, :challenge_update, :challenge_comment
+      :goal, :accomplish_by, :is_completed
     )
   end
 end
