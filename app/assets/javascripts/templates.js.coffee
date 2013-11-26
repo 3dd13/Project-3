@@ -43,6 +43,16 @@
         <hr/>
       {{/each}}
 
+      <form action=\"\">
+        <input id=\"goal\" type=\"text\" placeholder=\"Set your goal\">
+        <input id=\"accomplish_by\" type=\"text\" placeholder=\"When do you plan to complete this goal?\">
+        <p>Challenge completed?</p>
+        <input type=\"checkbox\" name=\"challenge_status\" value=\"Yes\">Yes<br>
+        <input type=\"checkbox\" name=\"challenge_status\" value=\"No\">No 
+      </form>
+
+      <button id=\"create_challenge\" class=\"btn btn-success\">Create a new challenge</button>
+
       <p><a id=\"back-to-users\" href=\"#\">Back to Users</a></p>
     {{/each}}
   "
