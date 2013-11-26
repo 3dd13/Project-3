@@ -55,41 +55,41 @@ $ ->
   $('section').on 'click', '#create_user', (e)->
     name = $("#user-name").val()
     gender = $("#gender").val()
-    # if (name == "" || gender == "") 
-    #   console.log "Name or gender field is empty"
-    # else
-    $.ajax '/api/users',
-      type: 'POST',
-      contentType: 'application/json',
-      data: JSON.stringify({user: {name: name, gender: gender}})
-      success: (data) ->
-        console.log data
+    if (name == "" || gender == "") 
+      console.log "Name or gender field is empty"
+    else
+      $.ajax '/api/users',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({user: {name: name, gender: gender}})
+        success: (data) ->
+          console.log data
 
-  # # To create a new challenge through form input
-  # $('#create_challenge').on 'click', (e) ->
-  #   id = $(@).data('id')
-  #   goal = $("input#goal").val()
-  #   accomplish_by = $("input#accomplish_by").val()
-  #   challenge_status = $("input#challenge_status").val().toUpperCase()
-  #   console.log goal
-  #   console.log id
-  #   console.log accomplish_by
-  #   console.log challenge_status
-  #   if (goal == "")
-  #     console.log "Please enter a goal"
-  #   else
-  #     $ajax "/api/users/#{id}/challenges",
-  #       type: 'POST',
-  #       contentType: 'application/json',
-  #       data: JSON.stringify({"challenge": 
-  #         {
-  #           goal: goal, 
-  #           accomplish_by: accomplish_by, 
-  #           is_completed: challenge_status == "YES" ? true : false 
-  #         } 
-  #       }),
-  #       success: (data) ->
-  #         console.log data
+  # To create a new challenge through form input
+  $('#create_challenge').on 'click', (e) ->
+    id = $(@).data('id')
+    goal = $("input#goal").val()
+    accomplish_by = $("input#accomplish_by").val()
+    challenge_status = $("input#challenge_status").val().toUpperCase()
+    console.log goal
+    console.log id
+    console.log accomplish_by
+    console.log challenge_status
+    if (goal == "")
+      console.log "Please enter a goal"
+    else
+      $ajax "/api/users/#{id}/challenges",
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({"challenge": 
+          {
+            goal: goal, 
+            accomplish_by: accomplish_by, 
+            is_completed: challenge_status == "YES" ? true : false 
+          } 
+        }),
+        success: (data) ->
+          console.log data
 
 
 
