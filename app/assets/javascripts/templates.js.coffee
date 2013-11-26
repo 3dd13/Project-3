@@ -19,6 +19,7 @@
           <li>{{accomplish_by}}</li>
           <li>{{is_completed}}</li>
           <li>{{completed_on}}</li>
+          <li id=\"my_milestones\" data-id=\"{{id}}\">Click here to see your milestones</li>
         </ul>
       {{/each}}
 
@@ -27,10 +28,12 @@
   "
 
   challengesTemplate: Handlebars.compile "
-    <ul>
-      {{#each challenges}}
-        <li data-id=\"{{id}}\">{{goal}}</li>
-        <li>{{is_completed}}</li>
+    {{#each challenges}}
+
+    <ul>{{goal}}
+      {{#each milestones}}
+        <li>{{step}}</li>
       {{/each}}
     </ul>
+    {{/each}}
   "

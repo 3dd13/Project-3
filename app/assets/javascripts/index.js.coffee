@@ -16,23 +16,26 @@ $ ->
     e.preventDefault()
     showPage '/api/users', project3.usersTemplate
         
-  # $('#content').on 'click', '#my_milestones', (e) ->
-  #   id = $(@).data('id')
-  #   showPage "/api/users/#{id}/challenges", project3.challengesTemplate
+  $('#content').on 'click','#my_milestones', (e) ->
+    console.log "Clicked your milestones"
+    id = $(@).data('id')
+    showPage "/api/users/#{id}/challenges", project3.challengesTemplate
 
   
   ##### To create a new user through form input
-  # $('#create_user').on 'click', ->
+  $('#create_user').on 'click', ->
 
-  #   name = $("#user-name").val()
-  #   if (name == "") {console.log "DONT submit the ajax "}
-  #   else
-  #     $.ajax '/api/users',
-  #     type: 'POST',
-  #     contentType: 'application/json',
-  #     data: JSON.stringify({"user": {"name": name, "gender":"Male"}})
-  #     success: (data) ->
-  #       console.log data
+    name = $("#user-name").val()
+    gender = $("#gender").val()
+    # if (name == "") 
+    #   alert "No value entered"
+    # else
+    $.ajax '/api/users',
+    type: 'POST',
+    contentType: 'application/json',
+    data: JSON.stringify({"user": {"name": name, "gender": gender}})
+    success: (data) ->
+      console.log data
 
 
 
