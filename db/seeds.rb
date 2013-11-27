@@ -18,6 +18,18 @@ users = User.create([
   {
     name: "Karen",
     gender: "Female"
+  },
+  {
+    name: "Laurent",
+    gender: "Male"
+  },
+  {
+    name: "Kiyohide",
+    gender: "Male"
+  },
+  {
+    name: "Eric",
+    gender: "Male"
   }
 ])
 
@@ -279,5 +291,115 @@ challenges = Challenge.create([
         repeat_freq: 1
       }
     ])
-  }
+  },
+  {
+    goal: "Climb the South Face of Shishapangma",
+    accomplish_by: '1-Jun-2015',
+    is_completed: false,
+    completed_on: '',
+    user: users[4],
+    challenge_as_summit: users[4],
+    milestones: Milestone.create([
+      {
+        step: "Do the climbs for a few of the the other 98 above 8000m peaks before attempting K2 and Shishapangma",
+        complete_by: "31-Dec-2014",
+        is_done: false,
+        milestone_comment: "",
+        repeat: false,
+        repeat_freq: 1
+      },
+      {
+        step: "Do the K2 climb",
+        complete_by: "31-Mar-2015",
+        is_done: true,
+        milestone_comment: "",
+        repeat: false,
+        repeat_freq: 1
+      }
+    ])
+  },
+  {
+    goal: "Explore Siula Grande",
+    accomplish_by: '31-Mar-2014',
+    is_completed: false,
+    completed_on: '',
+    user: users[4],
+    milestones: Milestone.create([
+      {
+        step: "Research about the experiences of Joe Simpson and Simon Yates about their experience of climbing the North Ridge and doing the descent",
+        complete_by: "31-Dec-2013",
+        is_done: false,
+        milestone_comment: "",
+        repeat: false,
+        repeat_freq: 1
+      },
+      {
+        step: "Learn more about climbing the glacier face",
+        complete_by: "31-Jan-2014",
+        is_done: false,
+        milestone_comment: "",
+        repeat: false,
+        repeat_freq: 1
+      },
+      {
+        step: "Explore the option to Ski during the descent",
+        complete_by: "28-Feb-2014",
+        is_done: false,
+        milestone_comment: "",
+        repeat: false,
+        repeat_freq: 1
+      }
+    ])
+  },
+  {
+    goal: "Ski two million vertical feet in a year starting from 1-Jan-2014",
+    accomplish_by: '31-Dec-2014',
+    is_completed: false,
+    completed_on: '',
+    user: users[5],
+    challenge_as_summit: users[5],
+    milestones: Milestone.create([
+      {
+        step: "Ski 71 different peaks in North and South America totalling two million vertical feet",
+        complete_by: "31-Dec-2014",
+        is_done: false,
+        milestone_comment: "",
+        repeat: false,
+        repeat_freq: 1
+      },
+      {
+        step: "Plan to relocate to South America for 4 months to complete the skis in South America",
+        complete_by: "31-Mar-2014",
+        is_done: false,
+        milestone_comment: "",
+        repeat: false,
+        repeat_freq: 1
+      }
+    ])
+  },
+  {
+    goal: "Circumnavigate Ellesmere Island, Arctic Canada",
+    accomplish_by: '30-Jun-2014',
+    is_completed: false,
+    completed_on: '',
+    user: users[6],
+    challenge_as_summit: users[6],
+    milestones: Milestone.create([
+      {
+        step: "Plan all the details of the navigation and logistics in a month",
+        is_done: false,
+        milestone_comment: "",
+        repeat: false,
+        repeat_freq: 1
+      },
+      {
+        step: "Complete the training by mid Mar 2014",
+        complete_by: "15-Mar-2015",
+        is_done: false,
+        milestone_comment: "The circumnavigation could take anywhere between 30 days to 104 days. Hope for the best and plan for the worst and try to start the circumnavigation in late Mar to finish the journey in the summer months by early July.",
+        repeat: false,
+        repeat_freq: 1
+      }
+    ])
+  },
 ])

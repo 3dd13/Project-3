@@ -58,12 +58,14 @@ $ ->
     if (name == "" || gender == "") 
       console.log "Name or gender field is empty"
     else
-      $.ajax '/api/users',
+      $.ajax '/api/users.json',
         type: 'POST',
         contentType: 'application/json',
-        data: JSON.stringify({user: {name: name, gender: gender}})
-        success: (data) ->
-          console.log data
+        dataType: 'text'
+        data: JSON.stringify({user: {name: name, gender: gender}}),
+        success: (x) ->
+          console.log('Success!')
+          showPage '/api/users', project3.usersTemplate
 
   # To create a new challenge through form input
   $('#content').on 'click', '#create_challenge', (e) ->
@@ -101,27 +103,25 @@ $ ->
       type: 'PUT',
       dataType: 'json',
       success: (data) ->
-        console.log 'Challenge marked complete!'
+        console.log "Challenge #{id} marked complete!"
         showPage "/api/users/#{user_id}", project3.userTemplate
 
 
-
-
-  # #NEW REVIEW SUBMIT FUNCTION
-  # $('#new_review_submit').on 'click', (e) ->
-  #   title = $('#new_restaurant_name').val()
-  #   id = $(@).data('id')
-
-  #   if (title=="") 
-  #     console.log("title is empty");
-  #   else
-  #     $.ajax '/api/users/1/reviews', 
-  #       type: 'POST',
-  #       contentType: 'application/json',
-  #       data: JSON.stringify({ "review": { "restaurant": title, "body": "Give me some chili!" }}),
-  #       success: (data) ->
-  #         console.log(data)
-
+  # To mark a milestone as complete
+  $('#content').on 'click', '.complete_milestone', (e) ->
+    id = $(@).data('id')
+    challenge_id = $(@).data('challenge-id')
+    user_id = $(@).data('user-id')
+    console.log id
+    console.log challenge_id
+    console.log user_id
+    $.ajax "/api/milestones/#{id}/complete",
+      type: 'PUT',
+      dataType: 'json',
+      success: (data) ->
+        console.log "Milestone #{id} marked complete!"
+        # showPage "/api/users/#{user_id}/challenges/#{challenge_id}", project3.challengeTemplate
+        $("#complete_milestone"+id).hide()
 
 
   

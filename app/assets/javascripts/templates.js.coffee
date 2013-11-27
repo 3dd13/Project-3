@@ -4,8 +4,8 @@
       {{#each users}}
         <li data-id=\"{{id}}\">
           <span>{{name}}</span>
-          <button class=\"edit\">Edit</button>
-          <button class=\"delete\">Delete</button>
+          <button class=\"btn btn-default edit\">Edit</button>
+          <button class=\"btn btn-default delete\">Delete</button>
         </li>
       {{/each}}
     </ul>
@@ -17,7 +17,7 @@
     </form>
 
 
-    <button id=\"create_user\">Add new User</button>
+    <button class=\"btn btn-success\"id=\"create_user\">Add new User</button>
   "
 
   userTemplate: Handlebars.compile "
@@ -75,9 +75,11 @@
       Goal: {{goal}}
       <ul>
         {{#each milestones}}
-          <li>
+          <li id=\"milestone_id\">
             {{step}}
-            <button class=\"btn btn-success\">Complete Milestone</button>
+            {{#unless is_done}}
+              <button id=\"complete_milestone{{id}}\" data-user-id=\"{{challenge.user_id}}\" data-challenge-id=\"{{challenge_id}}\" data-id=\"{{id}}\" class=\"complete_milestone btn btn-success\">Complete Milestone</button>
+            {{/unless}}
           </li>
         {{/each}}
       </ul>
