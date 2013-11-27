@@ -1,7 +1,7 @@
 class ChallengesController < ApplicationController
   
   before_action :get_user
-  before_action :get_challenge, only: [ :update, :destroy ]
+  before_action :get_challenge, only: [ :update, :destroy, :complete ]
 
   respond_to :json
 
@@ -42,6 +42,12 @@ class ChallengesController < ApplicationController
     head @challenge.destroy ? :no_content : :unprocessable_entity
   end
 
+  def complete
+    @challenge.complete!
+
+    head :no_content
+  end
+
   protected
 
   def get_user
@@ -57,7 +63,7 @@ class ChallengesController < ApplicationController
   end
 
   def challenge_params
-    params.require(:user).permit(
+    params.require(:challenge).permit(
       :goal, :accomplish_by, :is_completed
     )
   end

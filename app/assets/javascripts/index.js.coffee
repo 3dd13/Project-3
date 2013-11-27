@@ -45,8 +45,8 @@ $ ->
   # Display the selected challenge and all the milestones under that challenge
   $('#content').on 'click','#my_milestones', (e) ->
     console.log "Clicked your milestones"
-    user_id = $(@).data('user-id')
     id = $(@).data('id')
+    user_id = $(@).data('user-id')
     showPage "/api/users/#{user_id}/challenges/#{id}", project3.challengeTemplate
 
   
@@ -66,7 +66,7 @@ $ ->
           console.log data
 
   # To create a new challenge through form input
-  $('#create_challenge').on 'click', (e) ->
+  $('#content').on 'click', '#create_challenge', (e) ->
     id = $(@).data('id')
     goal = $("input#goal").val()
     accomplish_by = $("input#accomplish_by").val()
@@ -78,18 +78,32 @@ $ ->
     if (goal == "")
       console.log "Please enter a goal"
     else
-      $ajax "/api/users/#{id}/challenges",
+      $.ajax "/api/users/#{id}/challenges",
         type: 'POST',
         contentType: 'application/json',
-        data: JSON.stringify({"challenge": 
-          {
+        data: JSON.stringify({
+          challenge: {
             goal: goal, 
             accomplish_by: accomplish_by, 
-            is_completed: challenge_status == "YES" ? true : false 
-          } 
+            is_completed: challenge_status == "YES" ? true : false
+          }
         }),
         success: (data) ->
           console.log data
+
+
+
+  # To mark a challenge as complete
+  $('#content').on 'click', '#complete_challenge', (e) ->
+    id = $(@).data('id')
+    user_id = $(@).data('user-id')
+    $.ajax "/api/challenges/#{id}/complete",
+      type: 'PUT',
+      dataType: 'json',
+      success: (data) ->
+        console.log 'Challenge marked complete!'
+        showPage "/api/users/#{user_id}", project3.userTemplate
+
 
 
 

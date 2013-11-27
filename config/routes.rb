@@ -4,6 +4,8 @@ Project3::Application.routes.draw do
 
     resources :challenges, except: [ :show, :new, :edit ], defaults: { format: :json } do
       get ':id' => 'challenges#index', on: :collection, constraint: /\d+,(\d+(,?)+)/, as: :filtered
+
+      put 'complete', on: :member
     end
     
     resources :milestones, except: [ :show, :new, :edit ], defaults: { format: :json } do

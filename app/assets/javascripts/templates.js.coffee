@@ -30,7 +30,10 @@
       <p>Challenges</p>
       {{#each challenges}}
         <div class=\"challenge-slot\">
-          <button class=\"btn btn-success\">Complete Challenge</button>
+          {{#unless is_completed}}
+            <button class=\"btn btn-success\" id=\"complete_challenge\" data-user-id=\"{{user_id}}\" data-id=\"{{id}}\">Complete Challenge</button>
+          {{/unless}}
+
           <ul>
             <li>Challenge: {{goal}}</li>
             <li>Accomplish by: {{accomplish_by}}</li>
@@ -45,7 +48,7 @@
 
       <form action=\"\">
         <input id=\"goal\" type=\"text\" placeholder=\"Set your goal\">
-        <input id=\"accomplish_by\" type=\"text\" placeholder=\"When do you plan to complete this goal?\">
+        <input id=\"accomplish_by\" type=\"date\" placeholder=\"When do you plan to complete this goal?\">
         <p>Challenge completed?</p>
         <input id=\"challenge_status\" type=\"text\" placeholder=\"Yes/No\"> 
       </form>
@@ -55,6 +58,8 @@
       <p><a id=\"back-to-users\" href=\"#\">Back to Users</a></p>
     {{/each}}
   "
+
+
 
   userEditTemplate: Handlebars.compile "
     {{#each users}}
