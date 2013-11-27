@@ -27,10 +27,13 @@ $ ->
   $('section').on 'submit', 'form', (e) ->
     e.preventDefault()
     id = $(@).data('id')
+    console.log "id"
     $.ajax "/api/users/#{id}",
       type: 'PATCH',
+      dataType: 'text',
       data: $(@).serialize(),
       success: (x) ->
+        console.log x
         console.log('Success!')
         showPage '/api/users', project3.usersTemplate
 

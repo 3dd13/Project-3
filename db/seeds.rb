@@ -5,6 +5,7 @@ Milestone.destroy_all
 users = User.create([
   {
     name: "Amiko",
+    email: "amiko.kayanuma@gmail.com",
     gender: "Female"
   },
   {

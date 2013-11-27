@@ -1,9 +1,10 @@
 @project3 =
   usersTemplate: Handlebars.compile "
-    <ul>
+    <h4>User</h4>
+    <ul class=\"list-group\">
       {{#each users}}
-        <li data-id=\"{{id}}\">
-          <span>{{name}}</span>
+        <li class=\"list-group-item\" data-id=\"{{id}}\">
+          <span>{{name}}</span><br/><br/>
           <button class=\"btn btn-default edit\">Edit</button>
           <button class=\"btn btn-default delete\">Delete</button>
         </li>
