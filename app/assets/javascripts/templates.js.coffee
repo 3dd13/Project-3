@@ -53,9 +53,9 @@
         <input id=\"challenge_status\" type=\"text\" placeholder=\"Yes/No\"> 
       </form>
 
-      <button id=\"create_challenge\" data-id=\"{{id}}\" class=\"btn btn-success\">Create a new challenge</button>
+      <button id=\"create_challenge\" data-id=\"{{id}}\" class=\"btn btn-success\">Create a new challenge</button><br/><br/>
 
-      <p><a id=\"back-to-users\" href=\"#\">Back to Users</a></p>
+      <button id=\"back-to-users\" class=\"btn btn-default\"><a href=\"#\">Back to Homepage</a></button>
     {{/each}}
   "
 
@@ -67,7 +67,10 @@
         <input type=\"text\" name=\"user[name]\" value=\"{{name}}\">
         <input type=\"submit\" value=\"Save Changes\">
       </form>
+      
     {{/each}}
+    <br/>
+    <button id=\"back-to-users\" class=\"btn btn-default\"><a href=\"#\">Back to Homepage</a></button>
   "
 
   challengeTemplate: Handlebars.compile "
@@ -83,5 +86,8 @@
           </li>
         {{/each}}
       </ul>
+      
     {{/each}}
+    <br/>
+    <button id=\"back-to-users\" class=\"btn btn-default\"><a href=\"#\">Back to Homepage</a></button>
   "
