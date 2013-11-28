@@ -1,8 +1,8 @@
 $ ->
   showPage = (url, templateFunc) ->
     $.ajax url,
-      type: 'GET',
-      dataType: 'json',
+      type: 'GET'
+      dataType: 'json'
       success: (data) ->
         $('#content').html(templateFunc(data))
 
@@ -28,8 +28,9 @@ $ ->
     e.preventDefault()
     id = $(@).data('id')
     $.ajax "/api/users/#{id}",
-      type: 'PATCH',
-      data: $(@).serialize(),
+      type: 'PUT'
+      data: $(@).serialize()
+      dataType: 'text'
       success: (x) ->
         console.log('Success!')
         showPage '/api/users', project3.usersTemplate
@@ -38,7 +39,7 @@ $ ->
   $('section').on 'click', 'ul li button.delete', (e) ->
     id = $(@).parent().data('id')
     $.ajax "/api/users/#{id}",
-      type: 'DELETE',
+      type: 'DELETE'
       success: ->
         showPage '/api/users', project3.usersTemplate
         
@@ -50,6 +51,9 @@ $ ->
     showPage "/api/users/#{user_id}/challenges/#{id}", project3.challengeTemplate
 
   
+  # Show add form
+  $('section').on 'click', 'button.show-add-form', (e) ->
+    $('#content').html project3.userAddTemplate({})
   
   # To create a new user through form input
   $('section').on 'click', '#create_user', (e)->
@@ -59,10 +63,10 @@ $ ->
       console.log "Name or gender field is empty"
     else
       $.ajax '/api/users.json',
-        type: 'POST',
-        contentType: 'application/json',
+        type: 'POST'
+        contentType: 'application/json'
         dataType: 'text'
-        data: JSON.stringify({user: {name: name, gender: gender}}),
+        data: JSON.stringify({user: {name: name, gender: gender}})
         success: (x) ->
           console.log('Success!')
           showPage '/api/users', project3.usersTemplate
@@ -81,15 +85,15 @@ $ ->
       console.log "Please enter a goal"
     else
       $.ajax "/api/users/#{id}/challenges",
-        type: 'POST',
-        contentType: 'application/json',
+        type: 'POST'
+        contentType: 'application/json'
         data: JSON.stringify({
           challenge: {
             goal: goal, 
             accomplish_by: accomplish_by, 
             is_completed: challenge_status == "YES" ? true : false
           }
-        }),
+        })
         success: (data) ->
           console.log data
 
@@ -100,8 +104,8 @@ $ ->
     id = $(@).data('id')
     user_id = $(@).data('user-id')
     $.ajax "/api/challenges/#{id}/complete",
-      type: 'PUT',
-      dataType: 'json',
+      type: 'PUT'
+      dataType: 'json'
       success: (data) ->
         console.log "Challenge #{id} marked complete!"
         showPage "/api/users/#{user_id}", project3.userTemplate
@@ -116,8 +120,8 @@ $ ->
     console.log challenge_id
     console.log user_id
     $.ajax "/api/milestones/#{id}/complete",
-      type: 'PUT',
-      dataType: 'json',
+      type: 'PUT'
+      dataType: 'json'
       success: (data) ->
         console.log "Milestone #{id} marked complete!"
         # showPage "/api/users/#{user_id}/challenges/#{challenge_id}", project3.challengeTemplate

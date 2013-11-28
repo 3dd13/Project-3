@@ -1,9 +1,10 @@
 @project3 =
   usersTemplate: Handlebars.compile "
-    <ul>
+    <h3>Users</h3>
+    <ul class=\"list-group\">
       {{#each users}}
-        <li data-id=\"{{id}}\">
-          <span>{{name}}</span>
+        <li class=\"list-group-item\" data-id=\"{{id}}\">
+          <span>{{name}}</span><br/>
           <button class=\"btn btn-default edit\">Edit</button>
           <button class=\"btn btn-default delete\">Delete</button>
         </li>
@@ -11,13 +12,17 @@
     </ul>
 
 
+    <button class=\"show-add-form btn btn-success\">Add new User</button>
+  "
+
+  userAddTemplate: Handlebars.compile "
     <form action=\"\">
       <input id=\"user-name\" type=\"text\" placeholder=\"Full Name\">
       <input id=\"gender\" type=\"text\" placeholder=\"Male / Female\">
     </form>
 
 
-    <button class=\"btn btn-success\"id=\"create_user\">Add new User</button>
+    <button class=\"btn btn-success\"id=\"create_user\">Add User</button>
   "
 
   userTemplate: Handlebars.compile "

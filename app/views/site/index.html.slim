@@ -1,0 +1,95 @@
+doctype
+html
+  head
+    title Summit
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  body
+    section#content
+
+/     .col-lg-12
+/       .panel.panel-default
+/         .panel-heading 
+/           a href="https://www.foursquare.com"
+/           big.icon-foursquare.pull-left
+/           h3.panel-title Venue Search Powered by Foursquare
+/         .panel-body
+/           p.white-font Please enter venue:
+/           form#searchform action="#" method="GET"
+/             input#query name="query" type="text" placeholder="Example: Peter Luger's"
+/             '
+/             |
+/             input#submit name="submit" type="submit" value="Submit"
+
+/       p.white-font#venues
+
+
+/ javascript:
+/   $(function() {
+
+/     //Collapsing Comments
+/     $(".collapse").collapse()
+
+/     //Retrieve the user's location using the HTML5 Geolocation API
+/     $("#searchform").submit(function(event){
+/       event.preventDefault();
+/       //if (!lat) {
+/       //    navigator.geolocation.getCurrentPosition(getLocation);
+/       //} else {
+/           getVenues();
+/       //}
+/     });
+      
+/     //function getLocation(location) {
+/     //  lat = location.coords.latitude;
+/     //  lng = location.coords.longitude;
+/     //}
+
+/     //Get data from Foursquare and Post
+/     function getVenues() {
+/     $.ajax({
+/           type: "GET",
+/           url: "https://api.foursquare.com/v2/venues/search?client_id=YYWCGCR3ZRVRNWGEDOSQOJ2YM3FFBP4D0XNKNQZQ2W2LIVF4&client_secret=RVQLNIAC4GIGU5BHVY3R4UWKQIWNY0QEXJARJIUBPCJOQSKU&v=20131128&ll=22.27,114.15&limit=4&query="+$("#query").val()+"",
+/           success: function(data) {
+/             dataobj = data.response.venues;
+/             $("#venues").html("");
+/             console.log(dataobj)
+
+/             $.each( dataobj, function() {
+/                 if (this) {
+/                 console.log(this.categories[0])
+/                     str = this.categories[0].icon.prefix;
+/                     newstr = str.substring(0, str.length - 1);
+/                     icon = newstr+this.categories[0].icon.suffix;
+/                 } else {
+/                     icon = "";
+/                 }
+                
+/                 if (this.contact.formattedPhone) {
+/                     phone = "Phone:"+this.contact.formattedPhone;
+/                 } else {
+/                     phone = "";
+/                 }
+                
+/                 if (this.location.address) {
+/                     address = '<p class="subinfo">'+this.location.address+'<br>';
+/                 } else {
+/                     address = "";
+/                 }
+                
+/                 if (this.rating) {
+/                     rating = '<span class="rating">'+this.rating+'</span>';
+/                 }
+                
+/                 appendeddatahtml = '</p><div class="venue"><h2><span>'+this.name+'</span></h2>'+address+phone+'<p></p><p><strong>Total Checkins:</strong> '+this.stats.checkinsCount+'</p></div>';
+/                 $("#venues").append(appendeddatahtml);
+                
+/                 });
+/             }
+/         });
+/     }    
+
+
+
+/   });
