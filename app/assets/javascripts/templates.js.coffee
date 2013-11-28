@@ -33,23 +33,28 @@
       <hr/>
 
       <p>Challenges</p>
-      {{#each challenges}}
-        <div class=\"challenge-slot\">
-          {{#unless is_completed}}
-            <button class=\"btn btn-success\" id=\"complete_challenge\" data-user-id=\"{{user_id}}\" data-id=\"{{id}}\">Complete Challenge</button>
-          {{/unless}}
-
+      
+      <div class=\"challenge-detail-slot\">
+        {{#each challenges}}
           <ul>
             <li>Challenge: {{goal}}</li>
             <li>Accomplish by: {{accomplish_by}}</li>
-            <li>Completed? {{is_completed}}</li>
+            <li>Completed? 
+            {{#if is_completed}}
+              Yes
+            {{else}}
+              No
+            {{/if}}</li>
             <li>Completed date: {{completed_on}}</li>
           </ul>
-          <p id=\"my_milestones\" data-user-id=\"{{user_id}}\" data-id=\"{{id}}\" class=\"btn btn-primary\">Click here to see your milestones for this challenge</p>
-        </div>
-
+          <button id=\"my_milestones\" data-user-id=\"{{user_id}}\" data-id=\"{{id}}\" class=\"btn btn-primary\">Click here to see your milestones for this challenge</button>
+          <br/>
+          {{#unless is_completed}}
+            <button class=\"btn btn-success\" id=\"complete_challenge\" data-user-id=\"{{user_id}}\" data-id=\"{{id}}\">Complete Challenge</button>
+          {{/unless}}
+        {{/each}}
         <hr/>
-      {{/each}}
+      </div>     
 
       <form action=\"\">
         <input id=\"goal\" type=\"text\" placeholder=\"Set your goal\">
@@ -81,10 +86,10 @@
   challengeTemplate: Handlebars.compile "
     {{#each challenges}}
       Goal: {{goal}}
-      <ul>
+      <ul class=\"list-group\">
         {{#each milestones}}
-          <li id=\"milestone_id\">
-            {{step}}
+          <li class=\"list-group-item\" id=\"milestone_id\">
+            {{step}}<br/>
             {{#unless is_done}}
               <button id=\"complete_milestone{{id}}\" data-user-id=\"{{challenge.user_id}}\" data-challenge-id=\"{{challenge_id}}\" data-id=\"{{id}}\" class=\"complete_milestone btn btn-success\">Complete Milestone</button>
             {{/unless}}
@@ -94,5 +99,19 @@
       
     {{/each}}
     <br/>
+    <button id=\"back-to-challenges\" class=\"btn btn-default\" data-id=\"{{user_id}}\">Back to your challenges</button><br/>
+    <button id=\"back-to-users\" class=\"btn btn-default\">Back to Homepage</button>
+  "
+
+  challengeEditTemplate: Handlebars.compile "
+    {{#each challenges}}
+      <form id=\"user-edit-form\" data-id=\"{{id}}\">
+        <input type=\"text\" name=\"user[name]\" value=\"{{name}}\">
+        <input type=\"submit\" value=\"Save Changes\">
+      </form>
+      
+    {{/each}}
+    <br/>
     <button id=\"back-to-users\" class=\"btn btn-default\"><a href=\"#\">Back to Homepage</a></button>
   "
+

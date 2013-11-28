@@ -18,6 +18,11 @@ $ ->
     e.preventDefault()
     showPage '/api/users', project3.usersTemplate
 
+  # Redirect from challenge-milestones to the user page
+  $('section').on 'click', '#back-to-challenges', (e) ->
+    id = $(@).parent().data('id')
+    showPage "/api/users/#{id}", project3.userTemplate
+
   # Redirect to edit user form
   $('section').on 'click', 'ul li button.edit', (e) ->
     id = $(@).parent().data('id')
@@ -28,7 +33,7 @@ $ ->
     e.preventDefault()
     id = $(@).data('id')
     $.ajax "/api/users/#{id}",
-      type: 'PUT'
+      type: 'PATCH'
       data: $(@).serialize()
       dataType: 'text'
       success: (x) ->
@@ -76,7 +81,7 @@ $ ->
     id = $(@).data('id')
     goal = $("input#goal").val()
     accomplish_by = $("input#accomplish_by").val()
-    challenge_status = $("input#challenge_status").val().toUpperCase()
+    challenge_status = $("input#challenge_status").val()
     console.log goal
     console.log id
     console.log accomplish_by
@@ -87,16 +92,27 @@ $ ->
       $.ajax "/api/users/#{id}/challenges",
         type: 'POST'
         contentType: 'application/json'
+        dataType: 'text'
         data: JSON.stringify({
           challenge: {
             goal: goal, 
             accomplish_by: accomplish_by, 
-            is_completed: challenge_status == "YES" ? true : false
+            is_completed: challenge_status.toUpperCase() == "YES" ? true : false
           }
         })
         success: (data) ->
           console.log data
+          newChallenge = '<div class="challenge-detail-slot">
+            <ul>
+              <li>Challenge: ' + goal + '</li>
+              <li>Accomplish by: ' + accomplish_by + '</li>
+              <li>Completed? ' + challenge_status + '</li>
+            </ul>
+          </div><br/>
+          <button class="btn btn-success" id="complete_challenge">Complete Challenge</button>
+          '
 
+          $( ".challenge-detail-slot" ).append( newChallenge );
 
 
   # To mark a challenge as complete
